@@ -7,7 +7,7 @@ use ftp::{FtpStream, FtpError};
 fn run_ftp(addr: &str, user: &str, pass: &str) -> Result<(), FtpError> {
     let mut ftp_stream = FtpStream::connect((addr, 21))?;
     ftp_stream.login(user, pass)?;
-    println!("current dir: {}", ftp_stream.pwd()?);
+    println!("current working directory: {}", ftp_stream.pwd()?);
 
     ftp_stream.simple_retr("5MB.zip")?;
     println!("Downloaded file");
